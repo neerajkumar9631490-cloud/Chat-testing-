@@ -1112,7 +1112,7 @@
   document.getElementById('btn-global-chat').addEventListener('click', () => {
     pendingAction = 'global';
     closeChannelModal();
-    enterChat(null);
+    socket.emit('join_global');
   });
 
   codeBackBtn.addEventListener('click', showChannelSelectView);
@@ -1146,7 +1146,7 @@
     joinScreen.classList.add('hidden');
 
     // Update header badge
-    if (roomCode) {
+    if (roomCode&& roomCode !== 'global') {
       roomBadgeCode.textContent = roomCode;
       roomBadge.classList.add('visible');
       sidebarTitle.textContent = 'ROOM NODES';
