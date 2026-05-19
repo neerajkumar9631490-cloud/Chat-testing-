@@ -999,7 +999,7 @@
 
   // ── Socket connection (UPDATED FOR RENDER.COM) ──
   // connects to same origin where page is served (Render backend)
-  const socket = io({ transports: ["websocket"] });
+  const socket = io("https://chat-testing-vomu.onrender.com", { transports: ["websocket"] });
 
   // ── DOM refs ──
   const joinScreen      = document.getElementById('join-screen');
